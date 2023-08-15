@@ -1,0 +1,45 @@
+.training-page {
+  padding: 20px;
+}
+
+.training-page h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.training-list {
+  list-style-type: none;
+  padding: 0;
+
+  .training-item {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .training-item ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .training-item li {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .training-item {
+    width: calc(50% - 20px);
+  }
+}

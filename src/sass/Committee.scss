@@ -1,0 +1,33 @@
+.committee-page {
+  padding: 20px;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 20px;
+
+      ul {
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+
+        li {
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+
+  p {
+    color: red;
+    font-size: 1.2rem;
+  }
+}

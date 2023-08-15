@@ -29,15 +29,19 @@ const Events = () => {
       {isLoading ? (
         <p>Loading events...</p>
       ) : (
-        <ul>
+        <ul className="events-list">
           {allEvents.map((event) => (
             <li key={event.title}>
-              <ul>
-                <li>Event: {event.title}</li>
-                <li>Date: {event.date}</li>
-                <li>Address: {event.address}</li>
-                <li>Description: {event.description}</li>
-              </ul>
+              <div className="event-box">
+                <div className="event-details">
+                  <ul>
+                    <li className="event-title">Event: {event.title}</li>
+                    <li>Date: {event.date}</li>
+                    <li>Address: {event.address}</li>
+                    {/* <li>Description: {event.description}</li> */}
+                  </ul>
+                </div>
+              </div>
             </li>
           ))}
         </ul>

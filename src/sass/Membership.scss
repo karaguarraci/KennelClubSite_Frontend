@@ -1,0 +1,26 @@
+.membership-page {
+  padding: 20px;
+}
+
+.membership-page h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.membership-page p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 50px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background-color: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+  .membership-page p {
+    font-size: 1rem;
+  }
+}

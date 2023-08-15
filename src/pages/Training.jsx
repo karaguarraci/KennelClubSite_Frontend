@@ -29,9 +29,9 @@ const Training = () => {
       {isLoading ? (
         <p>Loading training sessions...</p>
       ) : (
-        <ul>
+        <ul className="training-list">
           {allTraining.map((training) => (
-            <li key={training.name}>
+            <li key={training.name} className="training-item">
               <ul>
                 <li>Name: {training.name}</li>
                 <li>Date: {training.date}</li>
@@ -41,7 +41,7 @@ const Training = () => {
           ))}
         </ul>
       )}
-      {showError && <p>{errorMessage}</p>}
+      {showError && <p className="error-message">{errorMessage}</p>}
     </div>
   );
 };

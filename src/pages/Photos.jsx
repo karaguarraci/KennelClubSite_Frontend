@@ -30,14 +30,15 @@ const Photos = () => {
       {isLoading ? (
         <p>Loading photos...</p>
       ) : (
-        <ul>
+        <ul className="photo-list">
           {allPhotos.map((photo) => (
             <li key={photo.title}>
-              <ul>
+              <div className="image-container">
                 <img src={`${API_URL}${photo.image}`} alt={photo.title} />
-                {console.log(photo.image)}
-                <li>{photo.title}</li>
-              </ul>
+                <ul className="image-details">
+                  <li>{photo.title}</li>
+                </ul>
+              </div>
             </li>
           ))}
         </ul>
