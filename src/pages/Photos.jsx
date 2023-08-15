@@ -3,7 +3,7 @@ import { API_URL } from "../../consts";
 import { useState, useEffect } from "react";
 
 const Photos = () => {
-  const [allPhotos, setAllPhotos] = useState([]);
+  const [allPhotos, setAllPhotos] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
@@ -12,6 +12,7 @@ const Photos = () => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(`${API_URL}/photos/`);
+        console.log(data);
         setIsLoading(false);
         setAllPhotos(data);
       } catch (err) {
@@ -33,7 +34,8 @@ const Photos = () => {
           {allPhotos.map((photo) => (
             <li key={photo.title}>
               <ul>
-                <img src={photo.image} alt={photo.title} />
+                <img src={`${API_URL}${photo.image}`} alt={photo.title} />
+                {console.log(photo.image)}
                 <li>{photo.title}</li>
               </ul>
             </li>
