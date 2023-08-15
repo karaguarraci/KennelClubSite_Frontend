@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { API_URL } from "../../consts.js";
 import { Form, Button, Container } from "react-bootstrap";
 
@@ -11,7 +11,7 @@ const Login = () => {
   });
 
   const [showError, setShowError] = useState(false);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const onChange = (e) => {
     setFormData({
@@ -28,7 +28,7 @@ const Login = () => {
       localStorage.setItem("token", data.token);
       localStorage.setItem("userId", data.userId);
       localStorage.setItem("userData", data);
-      // navigate("/");
+      navigate("/");
     } catch (err) {
       setShowError(true);
     }
