@@ -2,6 +2,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { loggedOutNavigationLinks, loggedInNavigationLinks } from "/consts.js";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { useEffect, useState } from "react";
+import GSDLogo from "../assets/GSDLogo.jpg";
 
 const NavBar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,10 +25,12 @@ const NavBar = () => {
   };
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="success" expand="lg">
       <Container>
+        <img src={GSDLogo} alt="logo" className="logo-img" />
         <Navbar.Brand as={Link} to={"/"}>
           Heads of the Valley
+          <br /> GSD Club
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="all_nav">
@@ -45,7 +48,7 @@ const NavBar = () => {
               Training
             </Nav.Link>
             <Nav.Link as={Link} to={"/photos"} onClick="hide.bs.dropdown">
-              Photos
+              Gallery
             </Nav.Link>
             <Nav.Link as={Link} to={"/links"} onClick="hide.bs.dropdown">
               Links

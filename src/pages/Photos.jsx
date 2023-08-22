@@ -34,7 +34,11 @@ const Photos = () => {
           {allPhotos.map((photo) => (
             <li key={photo.title}>
               <div className="image-container">
-                <img src={`${API_URL}${photo.image}`} alt={photo.title} />
+                <img
+                  className="photo-image"
+                  src={`${API_URL}${photo.image}`}
+                  alt={photo.title}
+                />
                 <ul className="image-details">
                   <li>{photo.title}</li>
                 </ul>

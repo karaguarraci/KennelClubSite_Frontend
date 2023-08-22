@@ -66,7 +66,7 @@ const Login = () => {
               placeholder="Password"
             />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button className="login-button" variant="success" type="submit">
             Login
           </Button>
         </Form>

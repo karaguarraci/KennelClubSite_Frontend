@@ -9,10 +9,12 @@ import Links from "./pages/Links";
 import Membership from "./pages/Membership";
 import Photos from "./pages/Photos";
 import Training from "./pages/Training";
+import Logo from "./components/Logo";
 
 function App() {
   return (
     <div className="app">
+      <Logo />
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />

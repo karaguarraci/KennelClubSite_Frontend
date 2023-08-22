@@ -17,6 +17,13 @@ nav {
   padding-left: 0;
 }
 
+.logo-img {
+  max-height: 50px;
+  max-width: 50%;
+  margin: 5px 10px;
+  border-radius: 50%;
+}
+
 @media (min-width: 990px) {
   nav {
     & ul {

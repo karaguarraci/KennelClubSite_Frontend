@@ -22,11 +22,14 @@
   margin: 10px;
   color: #333;
   text-decoration: none;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out,
+    color 0.3s ease-in-out;
 }
 
 .links-container a:hover {
   background-color: #ddd;
+  border-color: #999;
+  color: #000;
 }
 
 @media (max-width: 768px) {

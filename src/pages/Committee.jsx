@@ -29,10 +29,10 @@ const Committee = () => {
       {isLoading ? (
         <p>Loading committee members...</p>
       ) : (
-        <ul>
+        <ul className="committee-members-list">
           {committeeMembers.map((committeeMember) => (
             <li key={committeeMember.name}>
-              <ul>
+              <ul className="commmittee-member">
                 <li>Title: {committeeMember.title}</li>
                 <li>Name: {committeeMember.name}</li>
                 <li>Contact: {committeeMember.contact}</li>
