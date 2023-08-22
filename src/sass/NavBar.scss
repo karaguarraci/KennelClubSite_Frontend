@@ -24,6 +24,15 @@ nav {
   border-radius: 50%;
 }
 
+.navbar-brand {
+  color: white;
+  font-size: 18px;
+}
+
+.nav-link {
+  color: white;
+}
+
 @media (min-width: 990px) {
   nav {
     & ul {

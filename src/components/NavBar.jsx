@@ -25,7 +25,7 @@ const NavBar = () => {
   };
 
   return (
-    <Navbar bg="success" expand="lg">
+    <Navbar className="custom-navbar" bg="success" expand="lg">
       <Container>
         <img src={GSDLogo} alt="logo" className="logo-img" />
         <Navbar.Brand as={Link} to={"/"}>
