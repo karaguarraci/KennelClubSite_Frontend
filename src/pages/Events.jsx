@@ -2,7 +2,6 @@ import axios from "axios";
 import { API_URL } from "../../consts";
 import { useState, useEffect } from "react";
 import { Form, InputGroup, FormControl, Button } from "react-bootstrap";
-import { FaTimes } from "react-icons/fa";
 
 const Events = () => {
   const [allEvents, setAllEvents] = useState([]);
@@ -10,6 +9,7 @@ const Events = () => {
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
   const token = localStorage.getItem("token");
+  const isLoggedIn = token !== null;
 
   const [formData, setFormData] = useState({
     title: "",
@@ -54,18 +54,18 @@ const Events = () => {
 
   const onDelete = async (eventId) => {
     try {
-      const eventToDelete = await axios.delete(`${API_URL}/events/${eventId}`, {
+      await axios.delete(`${API_URL}/events/${eventId}/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      // setAllEvents((prevEvents) =>
-      //   prevEvents.filter((event) => event.id !== eventId)
-      // );
-      window.location.reload();
-      console.log(eventToDelete);
-    } catch (err) {
-      console.log(err);
+
+      setAllEvents((prevEvents) =>
+        prevEvents.filter((event) => event.id !== eventId)
+      );
+    } catch (error) {
+      console.log(error);
+      setErrorMessage("Something went wrong while deleting the event.");
     }
   };
 
@@ -86,9 +86,11 @@ const Events = () => {
                     <li>Address: {event.address}</li>
                     <li>Description: {event.description}</li>
                   </ul>
-                  <Button variant="danger" onClick={() => onDelete(event.id)}>
-                    <FaTimes /> Delete
-                  </Button>
+                  {isLoggedIn && (
+                    <Button variant="danger" onClick={() => onDelete(event.id)}>
+                      Delete
+                    </Button>
+                  )}
                 </div>
               </div>
             </li>
@@ -96,49 +98,51 @@ const Events = () => {
         </ul>
       )}
       {showError && <p>{errorMessage}</p>}
-      <div className="event-form">
-        <h2>Add New Event</h2>
-        <Form onSubmit={onSubmit}>
-          <InputGroup className="mb-3">
-            <FormControl
-              type="text"
-              name="title"
-              placeholder="Event Title"
-              value={formData.title}
-              onChange={onChange}
-            />
-          </InputGroup>
-          <InputGroup className="mb-3">
-            <FormControl
-              type="date"
-              name="date"
-              value={formData.date}
-              onChange={onChange}
-            />
-          </InputGroup>
-          <InputGroup className="mb-3">
-            <FormControl
-              type="text"
-              name="address"
-              placeholder="Address"
-              value={formData.address}
-              onChange={onChange}
-            />
-          </InputGroup>
-          <InputGroup className="mb-3">
-            <FormControl
-              as="textarea"
-              name="description"
-              placeholder="Description"
-              value={formData.description}
-              onChange={onChange}
-            />
-          </InputGroup>
-          <Button type="submit" variant="success" onClick={onSubmit}>
-            Add Event
-          </Button>
-        </Form>
-      </div>
+      {isLoggedIn && (
+        <div className="event-form">
+          <h2>Add New Event</h2>
+          <Form onSubmit={onSubmit}>
+            <InputGroup className="mb-3">
+              <FormControl
+                type="text"
+                name="title"
+                placeholder="Event Title"
+                value={formData.title}
+                onChange={onChange}
+              />
+            </InputGroup>
+            <InputGroup className="mb-3">
+              <FormControl
+                type="date"
+                name="date"
+                value={formData.date}
+                onChange={onChange}
+              />
+            </InputGroup>
+            <InputGroup className="mb-3">
+              <FormControl
+                type="text"
+                name="address"
+                placeholder="Address"
+                value={formData.address}
+                onChange={onChange}
+              />
+            </InputGroup>
+            <InputGroup className="mb-3">
+              <FormControl
+                as="textarea"
+                name="description"
+                placeholder="Description"
+                value={formData.description}
+                onChange={onChange}
+              />
+            </InputGroup>
+            <Button type="submit" variant="success" onClick={onSubmit}>
+              Add Event
+            </Button>
+          </Form>
+        </div>
+      )}
     </div>
   );
 };
