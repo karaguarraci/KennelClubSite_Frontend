@@ -23,7 +23,11 @@ const Events = () => {
       try {
         const { data } = await axios.get(`${API_URL}/events/`);
         setIsLoading(false);
-        setAllEvents(data);
+        const sortedEvents = data.sort(
+          (a, b) => new Date(a.date) - new Date(b.date)
+        );
+        setAllEvents(sortedEvents);
+        console.log(sortedEvents);
       } catch (err) {
         console.log(err);
         setShowError(true);
@@ -76,25 +80,56 @@ const Events = () => {
         <p>Loading events...</p>
       ) : (
         <ul className="events-list">
-          {allEvents.map((event) => (
-            <li key={event.id}>
-              <div className="event-box">
-                <div className="event-details">
-                  <ul>
-                    <li className="event-title">Event: {event.title}</li>
-                    <li>Date: {event.date}</li>
-                    <li>Address: {event.address}</li>
-                    <li>Description: {event.description}</li>
-                  </ul>
-                  {isLoggedIn && (
-                    <Button variant="danger" onClick={() => onDelete(event.id)}>
-                      Delete
-                    </Button>
-                  )}
+          <h2>Upcoming Events</h2>
+          {allEvents
+            .filter((event) => new Date(event.date) >= new Date())
+            .map((event) => (
+              <li key={event.id}>
+                <div className="event-box">
+                  <div className="event-details">
+                    <ul>
+                      <li className="event-title">Event: {event.title}</li>
+                      <li>Date: {event.date}</li>
+                      <li>Address: {event.address}</li>
+                      <li>Description: {event.description}</li>
+                    </ul>
+                    {isLoggedIn && (
+                      <Button
+                        variant="danger"
+                        onClick={() => onDelete(event.id)}
+                      >
+                        Delete
+                      </Button>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </li>
-          ))}
+              </li>
+            ))}
+          <h2>Past Events</h2>
+          {allEvents
+            .filter((event) => new Date(event.date) < new Date())
+            .map((event) => (
+              <li key={event.id}>
+                <div className="event-box">
+                  <div className="event-details">
+                    <ul>
+                      <li className="event-title">Event: {event.title}</li>
+                      <li>Date: {event.date}</li>
+                      <li>Address: {event.address}</li>
+                      <li>Description: {event.description}</li>
+                    </ul>
+                    {isLoggedIn && (
+                      <Button
+                        variant="danger"
+                        onClick={() => onDelete(event.id)}
+                      >
+                        Delete
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </li>
+            ))}
         </ul>
       )}
       {showError && <p>{errorMessage}</p>}
