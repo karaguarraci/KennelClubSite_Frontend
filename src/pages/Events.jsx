@@ -67,8 +67,8 @@ const Events = () => {
       setAllEvents((prevEvents) =>
         prevEvents.filter((event) => event.id !== eventId)
       );
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log(err);
       setErrorMessage("Something went wrong while deleting the event.");
     }
   };
