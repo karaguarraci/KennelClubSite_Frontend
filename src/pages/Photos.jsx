@@ -1,7 +1,7 @@
 import axios from "axios";
 import { API_URL } from "../../consts";
 import { useState, useEffect } from "react";
-import { Form, Button, FormControl, InputGroup } from "react-bootstrap";
+import { Form, Button, FormControl, InputGroup, Modal } from "react-bootstrap";
 
 const Photos = () => {
   const [allPhotos, setAllPhotos] = useState([]);
@@ -15,6 +15,9 @@ const Photos = () => {
 
   const token = localStorage.getItem("token");
   const isLoggedIn = token !== null;
+
+  const [showModal, setShowModal] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     fetchData();
@@ -31,6 +34,16 @@ const Photos = () => {
       setShowError(true);
       setErrorMessage("Something went wrong, please try again later.");
     }
+  };
+
+  const openModal = (imageSrc) => {
+    setSelectedImage(imageSrc);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    setShowModal(false);
   };
 
   const onChange = (e) => {
@@ -109,7 +122,10 @@ const Photos = () => {
         <ul className="photo-list">
           {allPhotos.map((photo, index) => (
             <li key={index}>
-              <div className="image-container">
+              <div
+                className="image-container"
+                onClick={() => openModal(`${API_URL}${photo.image}`)}
+              >
                 <img
                   className="photo-image"
                   src={`${API_URL}${photo.image}`}
@@ -134,6 +150,13 @@ const Photos = () => {
         </ul>
       )}
       {showError && <p>{errorMessage}</p>}
+      {showModal && (
+        <Modal show={showModal} onHide={closeModal} centered>
+          <Modal.Body>
+            <img src={selectedImage} alt="Full" className="full-image" />
+          </Modal.Body>
+        </Modal>
+      )}
     </div>
   );
 };

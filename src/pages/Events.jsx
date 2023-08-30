@@ -172,7 +172,7 @@ const Events = () => {
                 onChange={onChange}
               />
             </InputGroup>
-            <Button type="submit" variant="success" onClick={onSubmit}>
+            <Button type="submit" variant="success">
               Add Event
             </Button>
           </Form>

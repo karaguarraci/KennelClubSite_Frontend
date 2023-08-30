@@ -8,7 +8,7 @@ const Links = () => {
           target="_blank"
           rel="noreferrer"
         >
-          https://loremipsum.io/generator/?n=1&t=p
+          Useful Link
         </a>
         <a
           href="https://loremipsum.io/generator/?n=1&t=p"
@@ -22,7 +22,7 @@ const Links = () => {
           target="_blank"
           rel="noreferrer"
         >
-          https://loremipsum.io/generator/?n=1&t=p
+          link
         </a>
         <a
           href="https://loremipsum.io/generator/?n=1&t=p"
