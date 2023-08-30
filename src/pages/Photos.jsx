@@ -25,6 +25,7 @@ const Photos = () => {
       const { data } = await axios.get(`${API_URL}/photos/`);
       setIsLoading(false);
       setAllPhotos(data);
+      console.log(data);
     } catch (err) {
       console.log(err);
       setShowError(true);
@@ -63,6 +64,7 @@ const Photos = () => {
 
   const onDelete = async (photoId) => {
     try {
+      console.log("Deleting photo with ID:", photoId);
       await axios.delete(`${API_URL}/photos/${photoId}/`, {
         headers: {
           Authorization: `Bearer ${token}`,
