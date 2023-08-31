@@ -62,74 +62,79 @@ const Committee = () => {
 
   return (
     <div className="committee-page page">
-      <h1>Committee</h1>
-      {isLoading ? (
-        <p>Loading committee members...</p>
-      ) : (
-        <ul className="committee-members-list">
-          {committeeMembers.map((committeeMember) => (
-            <li key={committeeMember.id}>
-              {editingMember === committeeMember ? (
-                <Form>
-                  <Form.Group>
-                    <Form.Label>Title</Form.Label>
-                    <Form.Control
-                      type="text"
-                      value={updatedInfo.title}
-                      onChange={(e) =>
-                        setUpdatedInfo({
-                          ...updatedInfo,
-                          title: e.target.value,
-                        })
-                      }
-                    />
-                  </Form.Group>
-                  <Form.Group>
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control
-                      type="text"
-                      value={updatedInfo.name}
-                      onChange={(e) =>
-                        setUpdatedInfo({ ...updatedInfo, name: e.target.value })
-                      }
-                    />
-                  </Form.Group>
-                  <Form.Group>
-                    <Form.Label>Contact</Form.Label>
-                    <Form.Control
-                      type="text"
-                      value={updatedInfo.contact}
-                      onChange={(e) =>
-                        setUpdatedInfo({
-                          ...updatedInfo,
-                          contact: e.target.value,
-                        })
-                      }
-                    />
-                  </Form.Group>
-                  <Button variant="success" onClick={handleUpdate}>
-                    Update
-                  </Button>
-                </Form>
-              ) : (
-                <ul className="commmittee-member">
-                  <li>Title: {committeeMember.title}</li>
-                  <li>Name: {committeeMember.name}</li>
-                  <li>Contact: {committeeMember.contact}</li>
-                  {isLoggedIn && (
-                    <Button
-                      variant="success"
-                      onClick={() => handleEditClick(committeeMember)}
-                    >
-                      Edit
+      <div className="committee-content">
+        <h1>Committee</h1>
+        {isLoading ? (
+          <p>Loading committee members...</p>
+        ) : (
+          <ul className="committee-members-list">
+            {committeeMembers.map((committeeMember) => (
+              <li key={committeeMember.id}>
+                {editingMember === committeeMember ? (
+                  <Form>
+                    <Form.Group>
+                      <Form.Label>Title</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={updatedInfo.title}
+                        onChange={(e) =>
+                          setUpdatedInfo({
+                            ...updatedInfo,
+                            title: e.target.value,
+                          })
+                        }
+                      />
+                    </Form.Group>
+                    <Form.Group>
+                      <Form.Label>Name</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={updatedInfo.name}
+                        onChange={(e) =>
+                          setUpdatedInfo({
+                            ...updatedInfo,
+                            name: e.target.value,
+                          })
+                        }
+                      />
+                    </Form.Group>
+                    <Form.Group>
+                      <Form.Label>Contact</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={updatedInfo.contact}
+                        onChange={(e) =>
+                          setUpdatedInfo({
+                            ...updatedInfo,
+                            contact: e.target.value,
+                          })
+                        }
+                      />
+                    </Form.Group>
+                    <Button variant="success" onClick={handleUpdate}>
+                      Update
                     </Button>
-                  )}
-                </ul>
-              )}
-            </li>
-          ))}
-        </ul>
-      )}
+                  </Form>
+                ) : (
+                  <ul className="committee-member">
+                    <li>Title: {committeeMember.title}</li>
+                    <li>Name: {committeeMember.name}</li>
+                    <li>Contact: {committeeMember.contact}</li>
+                    {isLoggedIn && (
+                      <Button
+                        variant="success"
+                        onClick={() => handleEditClick(committeeMember)}
+                      >
+                        Edit
+                      </Button>
+                    )}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
       {showError && <p>{errorMessage}</p>}
     </div>
   );

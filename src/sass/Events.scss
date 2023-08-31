@@ -1,9 +1,22 @@
 .events-page {
   padding: 20px;
+  background-image: url(https://www.heraldtribune.com/gcdn/authoring/2011/06/12/NSHT/ghows-LK-1a8658a1-c23b-44f7-94ad-1bf8ca0bf225-1266da3e.jpeg?width=660&height=498&fit=crop&format=pjpg&auto=webp);
+  background-repeat: no-repeat;
+  background-size: cover;
 
   h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    color: green;
+    background-color: #fcfbfb;
+    border-radius: 5px;
+    margin: 0px 150px;
+  }
+
+  h2 {
+    color: green;
+    background-color: #fcfbfb;
+    border-radius: 5px;
   }
 
   .events-list {
@@ -18,6 +31,7 @@
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 20px;
+    background-color: #fcfbfbf7;
   }
 
   .event-details ul {
@@ -31,6 +45,8 @@
 
   p {
     font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgb(92, 89, 89);
   }
 
   @media (max-width: 768px) {

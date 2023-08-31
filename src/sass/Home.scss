@@ -4,21 +4,34 @@
   align-items: center;
   padding: 20px;
   text-align: center;
-
+  background-image: url(https://media.istockphoto.com/id/109718537/photo/german-shepherd-jumping-over-spring.jpg?s=612x612&w=0&k=20&c=hpC1J8YEYSbbhqxUlqkr9pt1pm0zlv6BrHQAzQFZaJ8=),
+    url(https://media.istockphoto.com/id/537739045/photo/schaeferhund-runs.jpg?s=612x612&w=0&k=20&c=9JIp0nE5QVe0djE_FOEWU1pd39JrUVZi2Nz8vemdl7E=);
+  background-position: left, right top;
+  background-repeat: no-repeat;
   img {
     max-width: 300px;
     margin-bottom: 20px;
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
 
   h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
+    color: green;
   }
 
   p {
     font-size: 1.2rem;
     line-height: 1.6;
+    color: rgb(92, 89, 89);
   }
+}
+
+.about-us {
+  border-radius: 8px;
+  padding: 5px;
+  margin: 10px 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fcfbfbf6;
 }
