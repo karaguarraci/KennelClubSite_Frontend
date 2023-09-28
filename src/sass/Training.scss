@@ -1,23 +1,42 @@
 .training-page {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(https://www.heraldtribune.com/gcdn/authoring/2011/06/12/NSHT/ghows-LK-1a8658a1-c23b-44f7-94ad-1bf8ca0bf225-1266da3e.jpeg?width=660&height=498&fit=crop&format=pjpg&auto=webp),
+    url(https://www.akc.org/wp-content/uploads/2022/10/German-Shepherd-Dog-standing-up-on-a-tree-trunk-exploring-a-park-500x486.jpg);
+  background-repeat: no-repeat;
+  background-position: left, right top;
 
   h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    font-size: 45px;
+    margin: 10px;
+    color: green;
+    padding: 10px;
   }
 
   .training-list {
     list-style-type: none;
     padding: 0;
     text-align: center;
-    margin: 20px 150px;
+    margin: 20px 0;
+  }
+
+  .training-box {
+    padding: 10px 80px;
+    border-radius: 5px;
+    background-color: #fcfbfbf7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   .training-item {
-    border: 1px solid #ccc;
-    padding: 10px;
+    border: none;
+    padding: 20px;
     border-radius: 5px;
-    margin-bottom: 20px;
+    background-color: #fcfbfbf7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    max-width: 600px;
   }
 
   .training-item ul {
@@ -30,16 +49,37 @@
   }
 
   p {
-    font-size: 1.2rem;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgb(92, 89, 89);
+  }
+
+  .add-training {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    max-width: 400px;
+    border-radius: 5px;
+    background-color: #fcfbfbf7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
   }
 
   @media (max-width: 768px) {
     .training-list {
-      margin: 20px 20px;
+      margin: 20px 0;
     }
 
     .training-item {
-      margin-bottom: 10px;
+      margin: 5px auto;
+    }
+
+    .add-training {
+      margin-top: 10px;
+    }
+
+    h1 {
+      font-size: 25px;
     }
   }
 }

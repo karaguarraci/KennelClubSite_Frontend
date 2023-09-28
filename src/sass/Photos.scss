@@ -2,17 +2,18 @@
   padding: 20px;
 }
 
-.photo-page h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
+h1 {
+  font-size: 45px;
+  margin: 10px;
+  color: green;
+  padding: 10px;
 }
 
 .add-photo {
   margin-bottom: 20px;
 }
 
-.add-photo h2 {
+h2 {
   margin-bottom: 10px;
 }
 
@@ -84,5 +85,9 @@
 @media (max-width: 768px) {
   .photo-list li {
     width: calc(50% - 20px);
+  }
+
+  h1 {
+    font-size: 25px;
   }
 }

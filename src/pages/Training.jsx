@@ -73,68 +73,70 @@ const Training = () => {
 
   return (
     <div className="training-page page">
-      <h1>Training</h1>
-      {isLoading ? (
-        <p>Loading training sessions...</p>
-      ) : (
-        <ul className="training-list">
-          {allTraining.map((training) => (
-            <li key={training.id} className="training-item">
-              <ul>
-                <li>Name: {training.name}</li>
-                <li>Date: {training.date}</li>
-                <li>Time: {training.time}</li>
-                {isLoggedIn && (
-                  <li>
-                    <Button
-                      variant="danger"
-                      onClick={() => onDelete(training.id)}
-                    >
-                      Delete
-                    </Button>
-                  </li>
-                )}
-              </ul>
-            </li>
-          ))}
-        </ul>
-      )}
-      {showError && <p className="error-message">{errorMessage}</p>}
-      {isLoggedIn && (
-        <div className="add-training">
-          <h2>Add New Training Session</h2>
-          <Form onSubmit={onSubmit}>
-            <InputGroup className="mb-3">
-              <FormControl
-                type="text"
-                name="name"
-                placeholder="Training Name"
-                value={formData.name}
-                onChange={onChange}
-              />
-            </InputGroup>
-            <InputGroup className="mb-3">
-              <FormControl
-                type="date"
-                name="date"
-                value={formData.date}
-                onChange={onChange}
-              />
-            </InputGroup>
-            <InputGroup className="mb-3">
-              <FormControl
-                type="time"
-                name="time"
-                value={formData.time}
-                onChange={onChange}
-              />
-            </InputGroup>
-            <Button variant="primary" onClick={onSubmit}>
-              Add Training
-            </Button>
-          </Form>
-        </div>
-      )}
+      <div className="training-box">
+        <h1>Training</h1>
+        {isLoading ? (
+          <p>Loading training sessions...</p>
+        ) : (
+          <ul className="training-list">
+            {allTraining.map((training) => (
+              <li key={training.id} className="training-item">
+                <ul>
+                  <li>Name: {training.name}</li>
+                  <li>Date: {training.date}</li>
+                  <li>Time: {training.time}</li>
+                  {isLoggedIn && (
+                    <li>
+                      <Button
+                        variant="danger"
+                        onClick={() => onDelete(training.id)}
+                      >
+                        Delete
+                      </Button>
+                    </li>
+                  )}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        )}
+        {showError && <p className="error-message">{errorMessage}</p>}
+        {isLoggedIn && (
+          <div className="add-training">
+            <h2>Add New Training Session</h2>
+            <Form onSubmit={onSubmit}>
+              <InputGroup className="mb-3">
+                <FormControl
+                  type="text"
+                  name="name"
+                  placeholder="Training Name"
+                  value={formData.name}
+                  onChange={onChange}
+                />
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <FormControl
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={onChange}
+                />
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <FormControl
+                  type="time"
+                  name="time"
+                  value={formData.time}
+                  onChange={onChange}
+                />
+              </InputGroup>
+              <Button variant="primary" onClick={onSubmit}>
+                Add Training
+              </Button>
+            </Form>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

@@ -52,7 +52,7 @@ const Events = () => {
       });
     } catch (e) {
       console.log(e);
-      setErrorMessage("Somthing went wrong");
+      setErrorMessage("Something went wrong");
     }
   };
 
@@ -75,24 +75,23 @@ const Events = () => {
 
   return (
     <div className="events-page page">
-      <h1>Events</h1>
-      {isLoading ? (
-        <p>Loading events...</p>
-      ) : (
-        <ul className="events-list">
-          <h2>Upcoming Events</h2>
-          {allEvents
-            .filter((event) => new Date(event.date) >= new Date())
-            .map((event) => (
-              <li key={event.id}>
-                <div className="event-box">
-                  <div className="event-details">
-                    <ul>
-                      <li className="event-title">Event: {event.title}</li>
-                      <li>Date: {event.date}</li>
-                      <li>Address: {event.address}</li>
-                      <li>Description: {event.description}</li>
-                    </ul>
+      <div className="event-box">
+        <h1>Events</h1>
+        {isLoading ? (
+          <p>Loading events...</p>
+        ) : (
+          <div>
+            <h2>Upcoming Events</h2>
+            <div className="row">
+              {allEvents
+                .filter((event) => new Date(event.date) >= new Date())
+                .map((event) => (
+                  <div className="col-md-4" key={event.id}>
+                    {/* <div className="event-info"> */}
+                    <h4>{event.title}</h4>
+                    <p>Date: {event.date}</p>
+                    <p>Address: {event.address}</p>
+                    <p>Description: {event.description}</p>
                     {isLoggedIn && (
                       <Button
                         variant="danger"
@@ -102,22 +101,20 @@ const Events = () => {
                       </Button>
                     )}
                   </div>
-                </div>
-              </li>
-            ))}
-          <h2>Past Events</h2>
-          {allEvents
-            .filter((event) => new Date(event.date) < new Date())
-            .map((event) => (
-              <li key={event.id}>
-                <div className="event-box">
-                  <div className="event-details">
-                    <ul>
-                      <li className="event-title">Event: {event.title}</li>
-                      <li>Date: {event.date}</li>
-                      <li>Address: {event.address}</li>
-                      <li>Description: {event.description}</li>
-                    </ul>
+                  // </div>
+                ))}
+            </div>
+            <h2>Past Events</h2>
+            <div className="row">
+              {allEvents
+                .filter((event) => new Date(event.date) < new Date())
+                .map((event) => (
+                  <div className="col-md-4" key={event.id}>
+                    {/* <div className="event-info"> */}
+                    <h4>{event.title}</h4>
+                    <p>Date: {event.date}</p>
+                    <p>Address: {event.address}</p>
+                    <p>Description: {event.description}</p>
                     {isLoggedIn && (
                       <Button
                         variant="danger"
@@ -127,57 +124,58 @@ const Events = () => {
                       </Button>
                     )}
                   </div>
-                </div>
-              </li>
-            ))}
-        </ul>
-      )}
-      {showError && <p>{errorMessage}</p>}
-      {isLoggedIn && (
-        <div className="event-form">
-          <h2>Add New Event</h2>
-          <Form onSubmit={onSubmit}>
-            <InputGroup className="mb-3">
-              <FormControl
-                type="text"
-                name="title"
-                placeholder="Event Title"
-                value={formData.title}
-                onChange={onChange}
-              />
-            </InputGroup>
-            <InputGroup className="mb-3">
-              <FormControl
-                type="date"
-                name="date"
-                value={formData.date}
-                onChange={onChange}
-              />
-            </InputGroup>
-            <InputGroup className="mb-3">
-              <FormControl
-                type="text"
-                name="address"
-                placeholder="Address"
-                value={formData.address}
-                onChange={onChange}
-              />
-            </InputGroup>
-            <InputGroup className="mb-3">
-              <FormControl
-                as="textarea"
-                name="description"
-                placeholder="Description"
-                value={formData.description}
-                onChange={onChange}
-              />
-            </InputGroup>
-            <Button type="submit" variant="success">
-              Add Event
-            </Button>
-          </Form>
-        </div>
-      )}
+                  // </div>
+                ))}
+            </div>
+          </div>
+        )}
+        {showError && <p>{errorMessage}</p>}
+        {isLoggedIn && (
+          <div className="event-form">
+            <h2>Add New Event</h2>
+            <Form onSubmit={onSubmit}>
+              <InputGroup className="mb-3">
+                <FormControl
+                  type="text"
+                  name="title"
+                  placeholder="Event Title"
+                  value={formData.title}
+                  onChange={onChange}
+                />
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <FormControl
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={onChange}
+                />
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <FormControl
+                  type="text"
+                  name="address"
+                  placeholder="Address"
+                  value={formData.address}
+                  onChange={onChange}
+                />
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <FormControl
+                  as="textarea"
+                  name="description"
+                  placeholder="Description"
+                  value={formData.description}
+                  onChange={onChange}
+                />
+              </InputGroup>
+              <Button type="submit" variant="success">
+                Add Event
+              </Button>
+            </Form>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

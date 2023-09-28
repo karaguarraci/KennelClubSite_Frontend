@@ -1,22 +1,25 @@
 .events-page {
   padding: 20px;
-  background-image: url(https://www.heraldtribune.com/gcdn/authoring/2011/06/12/NSHT/ghows-LK-1a8658a1-c23b-44f7-94ad-1bf8ca0bf225-1266da3e.jpeg?width=660&height=498&fit=crop&format=pjpg&auto=webp);
-  background-repeat: no-repeat;
-  background-size: cover;
+  // background-image: url(https://www.heraldtribune.com/gcdn/authoring/2011/06/12/NSHT/ghows-LK-1a8658a1-c23b-44f7-94ad-1bf8ca0bf225-1266da3e.jpeg?width=660&height=498&fit=crop&format=pjpg&auto=webp),
+  //   url(https://www.akc.org/wp-content/uploads/2022/10/German-Shepherd-Dog-standing-up-on-a-tree-trunk-exploring-a-park-500x486.jpg);
+  // background-repeat: no-repeat;
+  // background-position: left, right top;
 
   h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    font-size: 45px;
+    margin: 10px;
     color: green;
-    background-color: #fcfbfb;
-    border-radius: 5px;
-    margin: 0px 150px;
+    padding: 10px;
   }
 
   h2 {
     color: green;
-    background-color: #fcfbfb;
-    border-radius: 5px;
+    text-align: center;
+  }
+
+  h4 {
+    color: rgb(72, 72, 72);
+    font-size: 25px;
   }
 
   .events-list {
@@ -27,11 +30,20 @@
   }
 
   .event-box {
-    border: 1px solid #ccc;
     padding: 10px;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin: 10px 30px;
     background-color: #fcfbfbf7;
+  }
+
+  .col-md-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    padding: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
   }
 
   .event-details ul {
@@ -52,6 +64,10 @@
   @media (max-width: 768px) {
     .events-list {
       margin: 20px 20px;
+    }
+
+    h1 {
+      font-size: 25px;
     }
 
     .event-box {

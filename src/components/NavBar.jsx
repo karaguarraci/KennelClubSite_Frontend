@@ -35,9 +35,6 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="all_nav">
           <Nav className="browse_nav">
-            <Nav.Link as={Link} to={"/events"} onClick="hide.bs.dropdown">
-              Events
-            </Nav.Link>
             <Nav.Link as={Link} to={"/committee"} onClick="hide.bs.dropdown">
               Committee
             </Nav.Link>
@@ -46,6 +43,9 @@ const NavBar = () => {
             </Nav.Link>
             <Nav.Link as={Link} to={"/training"} onClick="hide.bs.dropdown">
               Training
+            </Nav.Link>
+            <Nav.Link as={Link} to={"/events"} onClick="hide.bs.dropdown">
+              Events
             </Nav.Link>
             <Nav.Link as={Link} to={"/photos"} onClick="hide.bs.dropdown">
               Gallery
