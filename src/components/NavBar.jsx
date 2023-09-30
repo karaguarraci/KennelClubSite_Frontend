@@ -29,7 +29,7 @@ const NavBar = () => {
       <Container>
         <img src={GSDLogo} alt="logo" className="logo-img" />
         <Navbar.Brand as={Link} to={"/"}>
-          Heads of the Valley
+          Heads of the Valleys
           <br /> GSD Club
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

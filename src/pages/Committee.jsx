@@ -117,9 +117,9 @@ const Committee = () => {
                   </Form>
                 ) : (
                   <ul className="committee-member">
-                    <li>Title: {committeeMember.title}</li>
-                    <li>Name: {committeeMember.name}</li>
-                    <li>Contact: {committeeMember.contact}</li>
+                    <li> {committeeMember.title}</li>
+                    <li> {committeeMember.name}</li>
+                    <li> {committeeMember.contact}</li>
                     {isLoggedIn && (
                       <Button
                         variant="success"
