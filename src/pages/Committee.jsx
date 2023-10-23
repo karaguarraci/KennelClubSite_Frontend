@@ -60,10 +60,83 @@ const Committee = () => {
     }
   };
 
+  const handleAddMember = async () => {
+    try {
+      const { data } = await axios.post(`${API_URL}/committee/`, updatedInfo);
+      setCommitteeMembers([...committeeMembers, data]);
+      setUpdatedInfo({ title: "", name: "", contact: "" });
+    } catch (err) {
+      console.log(err);
+      setShowError(true);
+      setErrorMessage("Failed to add a new committee member.");
+    }
+  };
+
+  const handleDeleteMember = async (member) => {
+    try {
+      await axios.delete(`${API_URL}/committee/${member.id}/`);
+      const updatedMembers = committeeMembers.filter(
+        (committeeMember) => committeeMember.id !== member.id
+      );
+      setCommitteeMembers(updatedMembers);
+      // window.location.reload();
+    } catch (err) {
+      console.log(err);
+      setShowError(true);
+      setErrorMessage("Failed to delete the committee member.");
+    }
+  };
+
   return (
     <div className="committee-page page">
       <div className="committee-content">
         <h1>Committee</h1>
+        {isLoggedIn && (
+          <Form>
+            <Form.Group>
+              <Form.Label>Title</Form.Label>
+              <Form.Control
+                type="text"
+                value={updatedInfo.title}
+                onChange={(e) =>
+                  setUpdatedInfo({
+                    ...updatedInfo,
+                    title: e.target.value,
+                  })
+                }
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                type="text"
+                value={updatedInfo.name}
+                onChange={(e) =>
+                  setUpdatedInfo({
+                    ...updatedInfo,
+                    name: e.target.value,
+                  })
+                }
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Contact</Form.Label>
+              <Form.Control
+                type="text"
+                value={updatedInfo.contact}
+                onChange={(e) =>
+                  setUpdatedInfo({
+                    ...updatedInfo,
+                    contact: e.target.value,
+                  })
+                }
+              />
+            </Form.Group>
+            <Button variant="primary" onClick={handleAddMember}>
+              Add Member
+            </Button>
+          </Form>
+        )}
         {isLoading ? (
           <p>Loading committee members...</p>
         ) : (
@@ -121,12 +194,20 @@ const Committee = () => {
                     <li> {committeeMember.name}</li>
                     <li> {committeeMember.contact}</li>
                     {isLoggedIn && (
-                      <Button
-                        variant="success"
-                        onClick={() => handleEditClick(committeeMember)}
-                      >
-                        Edit
-                      </Button>
+                      <>
+                        <Button
+                          variant="success"
+                          onClick={() => handleEditClick(committeeMember)}
+                        >
+                          Edit
+                        </Button>
+                        <Button
+                          variant="danger"
+                          onClick={() => handleDeleteMember(committeeMember)}
+                        >
+                          Delete
+                        </Button>
+                      </>
                     )}
                   </ul>
                 )}

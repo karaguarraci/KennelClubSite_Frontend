@@ -1,10 +1,12 @@
 .committee-page {
   padding: 20px;
-  background-image: url(https://media.istockphoto.com/id/109718537/photo/german-shepherd-jumping-over-spring.jpg?s=612x612&w=0&k=20&c=hpC1J8YEYSbbhqxUlqkr9pt1pm0zlv6BrHQAzQFZaJ8=),
-    url(https://media.istockphoto.com/id/537739045/photo/schaeferhund-runs.jpg?s=612x612&w=0&k=20&c=9JIp0nE5QVe0djE_FOEWU1pd39JrUVZi2Nz8vemdl7E=);
-  background-position: left, right top;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url(../src/assets/FadedDragon.png);
   background-repeat: no-repeat;
-  background-size: 400px;
+  background-position: top center;
+  background-size: 80%;
 }
 
 h1 {
@@ -49,7 +51,7 @@ h1 {
   border: 1px solid #fcfbfbee;
   border-radius: 5px;
   padding: 20px;
-  background-color: #fcfbfbf5;
+  background-color: #fcfbfb;
 }
 
 @media (min-width: 769px) {

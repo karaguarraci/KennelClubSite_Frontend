@@ -12,6 +12,7 @@ const Training = () => {
     name: "",
     date: "",
     time: "",
+    address: "",
   });
 
   const token = localStorage.getItem("token");
@@ -85,6 +86,7 @@ const Training = () => {
                   <li>Name: {training.name}</li>
                   <li>Date: {training.date}</li>
                   <li>Time: {training.time}</li>
+                  <li>Address: {training.address}</li>
                   {isLoggedIn && (
                     <li>
                       <Button
@@ -127,6 +129,15 @@ const Training = () => {
                   type="time"
                   name="time"
                   value={formData.time}
+                  onChange={onChange}
+                />
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <FormControl
+                  type="address"
+                  name="address"
+                  placeholder="Address"
+                  value={formData.address}
                   onChange={onChange}
                 />
               </InputGroup>

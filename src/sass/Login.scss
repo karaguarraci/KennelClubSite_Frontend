@@ -4,6 +4,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  background-image: url(../src/assets/FadedDragon.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 80%;
 }
 
 .form_container {

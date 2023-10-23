@@ -1,93 +1,54 @@
 .photo-page {
   padding: 20px;
-}
-
-h1 {
-  font-size: 45px;
-  margin: 10px;
-  color: green;
-  padding: 10px;
-}
-
-.add-photo {
-  margin-bottom: 20px;
-}
-
-h2 {
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url(../src/assets/FadedDragon.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 80%;
 }
 
 .photo-list {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  list-style-type: none;
+}
 
-  li {
-    width: calc(33.33% - 20px);
-    margin-bottom: 20px;
+.image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #fcfbfb;
+  background-color: #fcfbfb;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 45vh;
+  cursor: pointer;
+}
 
-    .image-container {
-      position: relative;
-      display: inline-block;
-      overflow: hidden;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      width: 100%;
-      padding-top: 100%; /* Maintain a square aspect ratio */
-      margin: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
+.photo-image {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+}
 
-    img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 5px;
-      object-fit: cover;
-      transition: transform 0.3s ease-in-out;
-    }
+.image-details {
+  margin-top: 10px;
+  font-size: 15px;
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
 
-    .image-details {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      color: white;
-      padding: 10px;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-    }
-
-    &:hover {
-      .image-container {
-        transform: translate(0, -5px);
-      }
-
-      .image-details {
-        opacity: 1;
-      }
-    }
-  }
+.add-photo {
+  margin: 20px 0;
 }
 
 .full-image {
   max-width: 100%;
-  max-height: 80vh;
+  max-height: 90vh;
   object-fit: contain;
-}
-
-@media (max-width: 768px) {
-  .photo-list li {
-    width: calc(50% - 20px);
-  }
-
-  h1 {
-    font-size: 25px;
-  }
 }

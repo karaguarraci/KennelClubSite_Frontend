@@ -2,11 +2,11 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-image: url(../assets/GroupPicIndoor.jpg),
-    url(https://www.akc.org/wp-content/uploads/2022/10/German-Shepherd-Dog-standing-up-on-a-tree-trunk-exploring-a-park-500x486.jpg);
+  min-height: 100vh;
+  background-image: url(../src/assets/FadedDragon.png);
   background-repeat: no-repeat;
-  background-position: left, right top;
+  background-position: top center;
+  background-size: 80%;
 
   h1 {
     font-size: 45px;
