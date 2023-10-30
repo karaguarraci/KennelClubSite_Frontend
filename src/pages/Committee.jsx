@@ -190,7 +190,10 @@ const Committee = () => {
                   </Form>
                 ) : (
                   <ul className="committee-member">
-                    <li> {committeeMember.title}</li>
+                    <li className="committee-title">
+                      {" "}
+                      {committeeMember.title}
+                    </li>
                     <li> {committeeMember.name}</li>
                     <li> {committeeMember.contact}</li>
                     {isLoggedIn && (
