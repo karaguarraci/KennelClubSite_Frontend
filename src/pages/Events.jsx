@@ -46,7 +46,7 @@ const Events = () => {
   const onSubmit = async () => {
     // e.preventDefault();
     try {
-      await axios.post(`${API_URL}/events/`, formData, {
+      await axios.post(`${import.meta.env.VITE_API_URL}/events/`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -59,7 +59,7 @@ const Events = () => {
 
   const onDelete = async (eventId) => {
     try {
-      await axios.delete(`${API_URL}/events/${eventId}/`, {
+      await axios.delete(`${import.meta.env.VITE_API_URL}/events/${eventId}/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

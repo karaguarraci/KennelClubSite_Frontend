@@ -63,7 +63,10 @@ const Committee = () => {
 
   const handleAddMember = async () => {
     try {
-      const { data } = await axios.post(`${API_URL}/committee/`, updatedInfo);
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/committee/`,
+        updatedInfo
+      );
       setCommitteeMembers([...committeeMembers, data]);
       setUpdatedInfo({ title: "", name: "", contact: "" });
     } catch (err) {
@@ -75,7 +78,9 @@ const Committee = () => {
 
   const handleDeleteMember = async (member) => {
     try {
-      await axios.delete(`${API_URL}/committee/${member.id}/`);
+      await axios.delete(
+        `${import.meta.env.VITE_API_URL}/committee/${member.id}/`
+      );
       const updatedMembers = committeeMembers.filter(
         (committeeMember) => committeeMember.id !== member.id
       );
