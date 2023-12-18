@@ -11,7 +11,7 @@ const Home = () => {
             Welcome to Heads of the Valleys German Shepherd Dog Club, we are a
             club with the ethic to Advance the breed. The Club was founded in
             March 1985 with the clubhouse and showground being at Royvons
-            Kennels & Training Centre in Merthyr Tydfil. Achieving it's CC
+            Kennels & Training Centre in Merthyr Tydfil. Achieving it&apos;s CC
             status in 2006 , The late Rob Davies of the Silverleigh Kennels was
             a true embassador of the club, always full of encouragement holding
             regular training and devoting his time to the club, he is greatly
