@@ -1,5 +1,4 @@
 import axios from "axios";
-import { API_URL } from "../../consts";
 import { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 
@@ -20,7 +19,9 @@ const Committee = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(`${API_URL}/committee/`);
+        const { data } = await axios.get(
+          `${import.meta.env.VITE_API_URL}/committee/`
+        );
         setIsLoading(false);
         setCommitteeMembers(data);
       } catch (err) {
@@ -44,7 +45,7 @@ const Committee = () => {
   const handleUpdate = async () => {
     try {
       const { data } = await axios.put(
-        `${API_URL}/committee/${editingMember.id}/`,
+        `${import.meta.env.VITE_API_URL}/committee/${editingMember.id}/`,
         updatedInfo
       );
       const updatedMembers = committeeMembers.map((member) =>

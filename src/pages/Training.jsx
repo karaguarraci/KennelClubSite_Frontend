@@ -1,5 +1,4 @@
 import axios from "axios";
-import { API_URL } from "../../consts";
 import { useState, useEffect } from "react";
 import { Form, Button, FormControl, InputGroup } from "react-bootstrap";
 
@@ -21,7 +20,9 @@ const Training = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(`${API_URL}/training/`);
+        const { data } = await axios.get(
+          `${import.meta.env.VITE_API_URL}/training/`
+        );
         setIsLoading(false);
         const sortedTraining = data.sort(
           (a, b) => new Date(a.date) - new Date(b.date)
@@ -42,7 +43,7 @@ const Training = () => {
 
   const onSubmit = async () => {
     try {
-      await axios.post(`${API_URL}/training/`, formData, {
+      await axios.post(`${import.meta.env.VITE_API_URL}/training/`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -57,11 +58,14 @@ const Training = () => {
 
   const onDelete = async (trainingId) => {
     try {
-      await axios.delete(`${API_URL}/training/${trainingId}/`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await axios.delete(
+        `${import.meta.env.VITE_API_URL}/training/${trainingId}/`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       console.log(trainingId);
       setAllTraining((prevTraining) =>
         prevTraining.filter((training) => training.id !== trainingId)

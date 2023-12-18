@@ -8,15 +8,20 @@ const Home = () => {
         <h1>About Us</h1>
         <div className="content-container">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet
-            risus nullam eget felis eget nunc lobortis mattis. Nec tincidunt
-            praesent semper feugiat nibh sed pulvinar proin. Enim nec dui nunc
-            mattis enim ut tellus elementum. Orci porta non pulvinar neque. Dui
-            faucibus in ornare quam. Ut diam quam nulla porttitor massa id
-            neque. Diam phasellus vestibulum lorem sed risus ultricies tristique
-            nulla aliquet. Semper quis lectus nulla at. Amet justo donec enim
-            diam vulputate. Gravida arcu ac tortor dignissim convallis aenean.
+            Welcome to Heads of the Valleys German Shepherd Dog Club, we are a
+            club with the ethic to Advance the breed. The Club was founded in
+            March 1985 with the clubhouse and showground being at Royvons
+            Kennels & Training Centre in Merthyr Tydfil. Achieving it's CC
+            status in 2006 , The late Rob Davies of the Silverleigh Kennels was
+            a true embassador of the club, always full of encouragement holding
+            regular training and devoting his time to the club, he is greatly
+            missed and through his dedication the club is here today and will
+            continue to thrive in memory of him. Currently our showground is at
+            Tonew Training Centre together with regular training at Pontypridd
+            being both an inside & outside venue hosted by breed specialist
+            trainers who support, guide & advise members both old & new to help
+            get the best out of their dog. Everyone is welcome, please see our
+            facebook page for regular updates.
           </p>
         </div>
       </div>

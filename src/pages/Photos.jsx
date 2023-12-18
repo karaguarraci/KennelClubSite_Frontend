@@ -1,5 +1,4 @@
 import axios from "axios";
-import { API_URL } from "../../consts";
 import { useState, useEffect } from "react";
 import { Form, Button, FormControl, InputGroup, Modal } from "react-bootstrap";
 
@@ -25,7 +24,9 @@ const Photos = () => {
 
   const fetchData = async () => {
     try {
-      const { data } = await axios.get(`${API_URL}/photos/`);
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_URL}/photos/`
+      );
       setIsLoading(false);
       setAllPhotos(data);
       console.log(data);
@@ -61,11 +62,15 @@ const Photos = () => {
       formDataToSend.append("title", formData.title);
       formDataToSend.append("image", formData.image);
 
-      await axios.post(`${API_URL}/photos/`, formDataToSend, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/photos/`,
+        formDataToSend,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       setFormData({ title: "", image: null });
       fetchData();
@@ -78,7 +83,7 @@ const Photos = () => {
   const onDelete = async (photoId) => {
     try {
       console.log("Deleting photo with ID:", photoId);
-      await axios.delete(`${API_URL}/photos/${photoId}/`, {
+      await axios.delete(`${import.meta.env.VITE_API_URL}/photos/${photoId}/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -124,11 +129,13 @@ const Photos = () => {
             <li key={index}>
               <div
                 className="image-container"
-                onClick={() => openModal(`${API_URL}${photo.image}`)}
+                onClick={() =>
+                  openModal(`${import.meta.env.VITE_API_URL}${photo.image}`)
+                }
               >
                 <img
                   className="photo-image"
-                  src={`${API_URL}${photo.image}`}
+                  src={`${import.meta.env.VITE_API_URL}${photo.image}`}
                   alt={photo.title}
                 />
                 <ul className="image-details">

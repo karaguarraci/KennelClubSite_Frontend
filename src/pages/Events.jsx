@@ -1,5 +1,4 @@
 import axios from "axios";
-import { API_URL } from "../../consts";
 import { useState, useEffect } from "react";
 import { Form, InputGroup, FormControl, Button } from "react-bootstrap";
 
@@ -21,7 +20,9 @@ const Events = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(`${API_URL}/events/`);
+        const { data } = await axios.get(
+          `${import.meta.env.VITE_API_URL}/events/`
+        );
         setIsLoading(false);
         const sortedEvents = data.sort(
           (a, b) => new Date(a.date) - new Date(b.date)

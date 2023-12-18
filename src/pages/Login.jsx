@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { API_URL } from "../../consts.js";
 import { Form, Button, Container } from "react-bootstrap";
 
 const Login = () => {
@@ -23,7 +22,10 @@ const Login = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(`${API_URL}/auth/login/`, formData);
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/auth/login/`,
+        formData
+      );
       console.log(`this is the user data ${data}`);
       localStorage.setItem("token", data.token);
       localStorage.setItem("userId", data.userId);
